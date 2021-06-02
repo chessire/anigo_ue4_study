@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="..\..\TestProject.uproject" />
+    <Filter Include="Source">
+      <UniqueIdentifier>{3DEB0922-417E-4B16-9741-D207A096ADCB}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\TestProject.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\Source\TestProjectEditor.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <Filter Include="Config">
+      <UniqueIdentifier>{B792AB94-A7EC-4CFA-B5B7-723D5F78AD3C}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Config\DefaultEditor.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEditorPerProjectUserSettings.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEngine.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultGame.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultInput.ini">
+      <Filter>Config</Filter>
+    </None>
+    <Filter Include="Source\TestProject">
+      <UniqueIdentifier>{1F96D766-1AED-4570-A277-3CF3A8EAA857}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\TestProject\TestProject.Build.cs">
+      <Filter>Source\TestProject</Filter>
+    </None>
+    <ClCompile Include="..\..\Source\TestProject\TestProject.cpp">
+      <Filter>Source\TestProject</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\TestProject\TestProject.h">
+      <Filter>Source\TestProject</Filter>
+    </ClInclude>
+    <Filter Include="Source\TestProject\InGame">
+      <UniqueIdentifier>{1BAC0620-ADA8-4217-BAF1-330A0200BA31}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\TestProject\InGame\TestProjectCharacter.cpp">
+      <Filter>Source\TestProject\InGame</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\TestProject\InGame\TestProjectCharacter.h">
+      <Filter>Source\TestProject\InGame</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\TestProject\InGame\TestProjectProjectile.cpp">
+      <Filter>Source\TestProject\InGame</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\TestProject\InGame\TestProjectProjectile.h">
+      <Filter>Source\TestProject\InGame</Filter>
+    </ClInclude>
+    <Filter Include="Source\TestProject\System">
+      <UniqueIdentifier>{D05C7782-9F09-4E3B-A37B-C6B85A58A354}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\TestProject\System\TestProjectAssetManager.cpp">
+      <Filter>Source\TestProject\System</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\TestProject\System\TestProjectAssetManager.h">
+      <Filter>Source\TestProject\System</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\TestProject\System\TestProjectGameInstance.cpp">
+      <Filter>Source\TestProject\System</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\TestProject\System\TestProjectGameInstance.h">
+      <Filter>Source\TestProject\System</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\TestProject\System\TestProjectGameMode.cpp">
+      <Filter>Source\TestProject\System</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\TestProject\System\TestProjectGameMode.h">
+      <Filter>Source\TestProject\System</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\TestProject\System\TestProjectHUD.cpp">
+      <Filter>Source\TestProject\System</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\TestProject\System\TestProjectHUD.h">
+      <Filter>Source\TestProject\System</Filter>
+    </ClInclude>
+    <Filter Include="Source\TestProject\Tables">
+      <UniqueIdentifier>{07888C1E-E0AC-4EA4-85FB-5D2990EC42EF}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\TestProject\Tables\WidgetTable.cpp">
+      <Filter>Source\TestProject\Tables</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\TestProject\Tables\WidgetTable.h">
+      <Filter>Source\TestProject\Tables</Filter>
+    </ClInclude>
+    <Filter Include="Source\TestProject\UI">
+      <UniqueIdentifier>{A0320720-CC58-4DD4-AB4F-F310AE11652A}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\TestProject\UI\HudMain.cpp">
+      <Filter>Source\TestProject\UI</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\TestProject\UI\HudMain.h">
+      <Filter>Source\TestProject\UI</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Source\TestProject\InGame\MonsterAI.cpp">
+      <Filter>Source\TestProject\InGame</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\TestProject\InGame\Monster.cpp">
+      <Filter>Source\TestProject\InGame</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Source\TestProject\InGame\MonsterAI.h">
+      <Filter>Source\TestProject\InGame</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\TestProject\InGame\Monster.h">
+      <Filter>Source\TestProject\InGame</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
