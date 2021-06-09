@@ -1,2 +1,0 @@
-C:\work\TestProject\Intermediate\Build\Win64\UE4Editor\Development\TestProject\Definitions.TestProject.h
-C:\work\TestProject\Source\TestProject\TestProject.h
