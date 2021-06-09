@@ -13,6 +13,7 @@ class UCameraComponent;
 class UMotionControllerComponent;
 class UAnimMontage;
 class USoundBase;
+class USphereComponent;
 
 UCLASS(config=Game)
 class ATestProjectCharacter : public ACharacter
@@ -50,6 +51,9 @@ class ATestProjectCharacter : public ACharacter
 	/** Motion controller (left hand) */
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
 	UMotionControllerComponent* L_MotionController;
+
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
+	USphereComponent* _queryingPlayer = nullptr;
 
 public:
 	ATestProjectCharacter();

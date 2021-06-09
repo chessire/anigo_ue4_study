@@ -3,7 +3,8 @@
 #include "CoreMinimal.h"
 #include "AIController.h"
 #include "Engine/TargetPoint.h"
-#include "Engine/EngineTypes.h"
+#include "BehaviorTree/BlackboardData.h"
+#include "BehaviorTree/BehaviorTree.h"
 #include "MonsterAI.generated.h"
 
 UCLASS()
@@ -15,15 +16,18 @@ public:
 	AMonsterAI();
 
 	virtual void BeginPlay() override;
+	virtual void OnPossess(APawn* pawn) override;
 
+	void NextMove();
+	void FindPlayer(AActor* player);
+
+private:
 	ATargetPoint* GetRandomWaypoint();
-	void GoToRandomWaypoint();
-
-	void OnMoveCompleted(FAIRequestID RequestID, const FPathFollowingResult& Result) override;
 
 private:
 	UPROPERTY()
 		TArray<AActor*> _waypoints;
 
-	FTimerHandle _timerHandle;
+	UBlackboardData* _blackboard;
+	UBehaviorTree* _behaviorTree;
 };

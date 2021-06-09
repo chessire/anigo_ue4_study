@@ -2,6 +2,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "Components/SphereComponent.h"
 #include "Monster.generated.h"
 
 UCLASS()
@@ -14,6 +15,11 @@ public:
 
 	virtual void BeginPlay() override;
 
-private:
+	UFUNCTION()
+	void FindPlayer(UPrimitiveComponent* myComp, AActor* otherActor, UPrimitiveComponent* otherComp, int32 otherBodyIndex, bool fromSweep, const FHitResult & sweepResult);
 
+
+private:
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
+	USphereComponent* _playerChecker = nullptr;
 };

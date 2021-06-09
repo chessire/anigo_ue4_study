@@ -11,6 +11,7 @@
 #include "Kismet/GameplayStatics.h"
 #include "MotionControllerComponent.h"
 #include "XRMotionControllerBase.h" // for FXRMotionControllerBase::RightHandSourceId
+#include "Components/SphereComponent.h"
 
 DEFINE_LOG_CATEGORY_STATIC(LogFPChar, Warning, All);
 
@@ -79,6 +80,11 @@ ATestProjectCharacter::ATestProjectCharacter()
 	VR_MuzzleLocation->SetupAttachment(VR_Gun);
 	VR_MuzzleLocation->SetRelativeLocation(FVector(0.000004, 53.999992, 10.000000));
 	VR_MuzzleLocation->SetRelativeRotation(FRotator(0.0f, 90.0f, 0.0f));		// Counteract the rotation of the VR gun model.
+
+	_queryingPlayer = CreateDefaultSubobject<USphereComponent>(TEXT("QueryingPlayer"));
+	_queryingPlayer->SetupAttachment(GetCapsuleComponent());
+	_queryingPlayer->BodyInstance.SetCollisionProfileName("QueryingPlayer");
+	_queryingPlayer->SetCollisionObjectType(ECC_GameTraceChannel2);
 
 	// Uncomment the following line to turn motion controllers on by default:
 	//bUsingMotionControllers = true;
