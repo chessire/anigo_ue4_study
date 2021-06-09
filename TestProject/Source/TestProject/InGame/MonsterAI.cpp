@@ -23,6 +23,7 @@ ATargetPoint* AMonsterAI::GetRandomWaypoint()
 		return nullptr;
 
 	int index = FMath::RandRange(0, _waypoints.Num() - 1);
+	UE_LOG(LogTemp, Warning, TEXT("RandomWaypoint : %d"), index);
 	return Cast<ATargetPoint>(_waypoints[index]);
 }
 

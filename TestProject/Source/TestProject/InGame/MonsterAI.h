@@ -23,7 +23,7 @@ public:
 
 private:
 	UPROPERTY()
-	TArray<AActor*> _waypoints;
+		TArray<AActor*> _waypoints;
 
 	FTimerHandle _timerHandle;
 };
