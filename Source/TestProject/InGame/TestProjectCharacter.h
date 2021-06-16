@@ -53,7 +53,7 @@ class ATestProjectCharacter : public ACharacter
 	UMotionControllerComponent* L_MotionController;
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
-	USphereComponent* _queryingPlayer = nullptr;
+	USphereComponent* _playerSphere = nullptr;
 
 public:
 	ATestProjectCharacter();

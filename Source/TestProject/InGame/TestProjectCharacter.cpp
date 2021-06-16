@@ -81,10 +81,10 @@ ATestProjectCharacter::ATestProjectCharacter()
 	VR_MuzzleLocation->SetRelativeLocation(FVector(0.000004, 53.999992, 10.000000));
 	VR_MuzzleLocation->SetRelativeRotation(FRotator(0.0f, 90.0f, 0.0f));		// Counteract the rotation of the VR gun model.
 
-	_queryingPlayer = CreateDefaultSubobject<USphereComponent>(TEXT("QueryingPlayer"));
-	_queryingPlayer->SetupAttachment(GetCapsuleComponent());
-	_queryingPlayer->BodyInstance.SetCollisionProfileName("QueryingPlayer");
-	_queryingPlayer->SetCollisionObjectType(ECC_GameTraceChannel2);
+	_playerSphere = CreateDefaultSubobject<USphereComponent>(TEXT("QueryingPlayer"));
+	_playerSphere->SetupAttachment(GetCapsuleComponent());
+	_playerSphere->BodyInstance.SetCollisionProfileName("QueryingPlayer");
+	_playerSphere->SetCollisionObjectType(ECC_GameTraceChannel2);
 
 	// Uncomment the following line to turn motion controllers on by default:
 	//bUsingMotionControllers = true;
