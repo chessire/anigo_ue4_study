@@ -3,6 +3,7 @@
 #include "TestProjectProjectile.h"
 #include "GameFramework/ProjectileMovementComponent.h"
 #include "Components/SphereComponent.h"
+#include "Monster.h"
 
 ATestProjectProjectile::ATestProjectProjectile() 
 {
@@ -38,6 +39,12 @@ void ATestProjectProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* OtherAc
 	{
 		OtherComp->AddImpulseAtLocation(GetVelocity() * 100.0f, GetActorLocation());
 
+		Destroy();
+	}
+
+	if (AMonster* monster = Cast<AMonster>(OtherActor))
+	{
+		monster->Hit(10);
 		Destroy();
 	}
 }
