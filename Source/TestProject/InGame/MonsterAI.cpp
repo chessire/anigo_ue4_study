@@ -4,21 +4,11 @@
 #include "Math/UnrealMathUtility.h"
 #include "BehaviorTree/BlackboardComponent.h"
 #include "TimerManager.h"
+#include "Tables/MonsterTable.h"
 
 AMonsterAI::AMonsterAI()
 	: Super()
 {
-	static ConstructorHelpers::FObjectFinder<UBlackboardData> blackboard(TEXT("BlackboardData'/Game/FirstPerson/AI/BB_Monster00.BB_Monster00'"));
-	if (blackboard.Succeeded())
-	{
-		_blackboard = blackboard.Object;
-	}
-
-	static ConstructorHelpers::FObjectFinder<UBehaviorTree> behaviorTree(TEXT("BehaviorTree'/Game/FirstPerson/AI/BT_Monster00.BT_Monster00'"));
-	if (behaviorTree.Succeeded())
-	{
-		_behaviorTree = behaviorTree.Object;
-	}
 }
 
 void AMonsterAI::BeginPlay()
@@ -28,9 +18,10 @@ void AMonsterAI::BeginPlay()
 	UGameplayStatics::GetAllActorsOfClass(GetWorld(), ATargetPoint::StaticClass(), _waypoints);
 }
 
-void AMonsterAI::OnPossess(APawn* pawn)
+void AMonsterAI::Initialize(const FMonsterTableRow* monsterData)
 {
-	Super::OnPossess(pawn);
+	_blackboard = monsterData->blackboard;
+	_behaviorTree = monsterData->behaviorTree;
 
 	if (UseBlackboard(_blackboard, Blackboard) == false || RunBehaviorTree(_behaviorTree) == false)
 	{

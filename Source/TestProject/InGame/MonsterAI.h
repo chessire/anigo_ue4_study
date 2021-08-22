@@ -7,6 +7,8 @@
 #include "BehaviorTree/BehaviorTree.h"
 #include "MonsterAI.generated.h"
 
+struct FMonsterTableRow;
+
 UCLASS()
 class AMonsterAI : public AAIController
 {
@@ -16,8 +18,8 @@ public:
 	AMonsterAI();
 
 	virtual void BeginPlay() override;
-	virtual void OnPossess(APawn* pawn) override;
 
+	void Initialize(const FMonsterTableRow* monsterData);
 	void NextMove();
 	void FindPlayer(AActor* player);
 

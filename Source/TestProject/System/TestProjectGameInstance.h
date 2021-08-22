@@ -5,6 +5,7 @@
 #include "TestProjectGameInstance.generated.h"
 
 struct FWidgetTableRow;
+struct FMonsterTableRow;
 
 class UTestProjectAssetManager;
 
@@ -16,15 +17,15 @@ class UTestProjectGameInstance : public UGameInstance
 public:
 	virtual void Init() override;
 
-	// #todo
 	UTestProjectAssetManager* GetAssetManager() { return _assetManager; }
 	const FWidgetTableRow* GetWidget(FName key) const { return _widgetDataTable[key]; }
+	const FMonsterTableRow* GetMonsterData(int64 key) const { return _monsterDataTable[key]; }
 
 private:
 	void InitDataTables();
 
 private:
-	// #todo
 	TMap<FName, FWidgetTableRow*> _widgetDataTable;
+	TMap<int64, FMonsterTableRow*> _monsterDataTable;
 	UTestProjectAssetManager* _assetManager;
 };

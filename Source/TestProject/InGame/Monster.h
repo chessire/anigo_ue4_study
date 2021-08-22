@@ -25,6 +25,9 @@ public:
 	void Hit(uint32 damage);
 
 private:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
+	int64 _id = 0;
+
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
 	USphereComponent* _playerChecker = nullptr;
 
@@ -35,8 +38,14 @@ private:
 	class UMonsterHpBar* _hpWidget = nullptr;
 
 	UPROPERTY()
-	uint32 _currentHp = 0;
+	class AMonsterAI* _monsterAI = nullptr;
+
+	UPROPERTY()
+	int64 _currentHp = 0;
 
 	UPROPERTY()
 	float _invMaxHp = 0.f;
+
+	UPROPERTY()
+	int64 _armor = 0;
 };
