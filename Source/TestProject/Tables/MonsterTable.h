@@ -29,6 +29,9 @@ public:
 	float detect_range = 300.f;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Monster")
+	TSoftObjectPtr<UBlueprint> monster = nullptr;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Monster")
 	UBlackboardData* blackboard = nullptr;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Monster")

@@ -29,7 +29,30 @@ AMonster::AMonster()
 	PrimaryActorTick.bCanEverTick = true;
 
 	AIControllerClass = AMonsterAI::StaticClass();
+}
 
+void AMonster::Initialize(int64 monsterID, const TArray<class ATargetPoint*>& waypoints)
+{
+	_waypoints.Append(waypoints);
+
+	if (UTestProjectGameInstance* gameInst = Cast<UTestProjectGameInstance>(GetGameInstance()))
+	{
+		const FMonsterTableRow* monsterTableRow = gameInst->GetMonsterData(monsterID);
+
+		uint32 maxHP = monsterTableRow->hp;
+		_currentHp = maxHP;
+		_invMaxHp = 1.f / maxHP;
+
+		_armor = monsterTableRow->armor;
+
+		_playerChecker->SetSphereRadius(monsterTableRow->detect_range);
+
+		_monsterAI = Cast<AMonsterAI>(GetController());
+		_monsterAI->Initialize(this, monsterTableRow);
+
+		UCharacterMovementComponent* movementComp = Cast<UCharacterMovementComponent>(GetMovementComponent());
+		movementComp->MaxWalkSpeed = monsterTableRow->speed;
+	}
 }
 
 void AMonster::BeginPlay()
@@ -48,22 +71,6 @@ void AMonster::BeginPlay()
 			_hpWidget = Cast<UMonsterHpBar>(_hpWidgetComp->GetUserWidgetObject());
 			_hpWidget->SetOwner(this);
 		}
-
-		const FMonsterTableRow* monsterTableRow = gameInst->GetMonsterData(_id);
-
-		uint32 maxHP = monsterTableRow->hp;
-		_currentHp = maxHP;
-		_invMaxHp = 1.f / maxHP;
-
-		_armor = monsterTableRow->armor;
-
-		UCharacterMovementComponent* movementComp = Cast<UCharacterMovementComponent>(GetMovementComponent());
-		movementComp->MaxWalkSpeed = monsterTableRow->speed;
-
-		_playerChecker->SetSphereRadius(monsterTableRow->detect_range);
-
-		_monsterAI = Cast<AMonsterAI>(GetController());
-		_monsterAI->Initialize(monsterTableRow);
 	}
 
 	_playerChecker->OnComponentBeginOverlap.AddDynamic(this, &AMonster::FindPlayer);

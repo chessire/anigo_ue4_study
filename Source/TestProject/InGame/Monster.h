@@ -13,6 +13,8 @@ class AMonster : public ACharacter
 public:
 	AMonster();
 
+	void Initialize(int64 monsterID, const TArray<class ATargetPoint*>& waypoints);
+
 	virtual void BeginPlay() override;
 
 	virtual void Tick(float dt) override;
@@ -24,10 +26,9 @@ public:
 
 	void Hit(uint32 damage);
 
-private:
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
-	int64 _id = 0;
+	const TArray<class ATargetPoint*>& GetWaypoints() const { return _waypoints; }
 
+private:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, meta = (AllowPrivateAccess = "true"))
 	USphereComponent* _playerChecker = nullptr;
 
@@ -36,6 +37,9 @@ private:
 
 	UPROPERTY(VisibleAnywhere)
 	class UMonsterHpBar* _hpWidget = nullptr;
+
+	UPROPERTY()
+	TArray<class ATargetPoint*> _waypoints;
 
 	UPROPERTY()
 	class AMonsterAI* _monsterAI = nullptr;

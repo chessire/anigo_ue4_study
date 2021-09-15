@@ -17,9 +17,7 @@ class AMonsterAI : public AAIController
 public:
 	AMonsterAI();
 
-	virtual void BeginPlay() override;
-
-	void Initialize(const FMonsterTableRow* monsterData);
+	void Initialize(class AMonster* owner, const FMonsterTableRow* monsterData);
 	void NextMove();
 	void FindPlayer(AActor* player);
 
@@ -27,9 +25,7 @@ private:
 	ATargetPoint* GetRandomWaypoint();
 
 private:
-	UPROPERTY()
-		TArray<AActor*> _waypoints;
-
+	class AMonster* _owner;
 	UBlackboardData* _blackboard;
 	UBehaviorTree* _behaviorTree;
 };

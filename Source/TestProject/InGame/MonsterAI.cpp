@@ -5,21 +5,16 @@
 #include "BehaviorTree/BlackboardComponent.h"
 #include "TimerManager.h"
 #include "Tables/MonsterTable.h"
+#include "Monster.h"
 
 AMonsterAI::AMonsterAI()
 	: Super()
 {
 }
 
-void AMonsterAI::BeginPlay()
+void AMonsterAI::Initialize(class AMonster* owner, const FMonsterTableRow* monsterData)
 {
-	Super::BeginPlay();
-
-	UGameplayStatics::GetAllActorsOfClass(GetWorld(), ATargetPoint::StaticClass(), _waypoints);
-}
-
-void AMonsterAI::Initialize(const FMonsterTableRow* monsterData)
-{
+	_owner = owner;
 	_blackboard = monsterData->blackboard;
 	_behaviorTree = monsterData->behaviorTree;
 
@@ -41,10 +36,11 @@ void AMonsterAI::FindPlayer(AActor* player)
 
 ATargetPoint* AMonsterAI::GetRandomWaypoint()
 {
-	if (_waypoints.Num() == 0)
+	const TArray<class ATargetPoint*>& waypoints = _owner->GetWaypoints();
+	if (waypoints.Num() == 0)
 		return nullptr;
 
-	int index = FMath::RandRange(0, _waypoints.Num() - 1);
+	int index = FMath::RandRange(0, waypoints.Num() - 1);
 	UE_LOG(LogTemp, Warning, TEXT("RandomWaypoint : %d"), index);
-	return Cast<ATargetPoint>(_waypoints[index]);
+	return Cast<ATargetPoint>(waypoints[index]);
 }
